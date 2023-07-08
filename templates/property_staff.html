@@ -1,0 +1,142 @@
+{% extends 'navbar.html' %}
+{% block content %}
+{% load static %}
+
+{% for c in company %}
+
+
+
+<div class="page-wrapper">
+    <div class="page-body">
+        <div class="container-xl">
+            <div class="row row-cards">
+
+
+
+
+                <div class="col-12">
+                    <form class="border" action="{% url 'save_staff' c.id %}" method="post"
+                        enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="card-body">
+                            <h3 class="card-title">Create Staff</h3>
+                            <div class="row row-cards">
+                                <div class="col-md-3">
+                                    <div class="mb-1">
+                                        <label class="form-label">Name</label>
+                                        <input type="text" class="form-control" placeholder="full name" name="fullname">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <label class="form-label">Mobile</label>
+                                        <input type="text" class="form-control" placeholder="Phone Number" name="phone">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-1">
+                                        <label class="form-label">Photo</label>
+                                        <input type="file" class="form-control" name="pic">
+                                    </div>
+                                </div>
+                                <!-- <div class="col-md-3">
+                                    <div class="mb-1">
+                                        <label class="form-label">Passport Copy</label>
+                                        <input type="file" multiple class="form-control" name="files[]">
+                                    </div>
+                                </div> -->
+
+                                <div class="col-md-1">
+                                    <div class="mb-1">
+                                        <label class="form-label">-</label>
+                                        <button type="submit" class="btn btn-outline-primary">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+
+                <div class="col-12">
+
+                    <div class="card">
+                        <div class="table-responsive">
+                            <table class="table table-vcenter card-table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Mobile</th>
+                                       
+                                        <th class="w-1"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for s in staff reversed %}
+                                    <tr>
+                                        <td data-label="Name">
+                                            <div class="d-flex py-1 align-items-center">
+                                                <span class="avatar me-2"
+                                                    style="background-image: url(../media/{{s.photo}})"></span>
+                                                <div class="flex-fill">
+                                                    <div class="font-weight-medium">{{s.fullname}}</div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td data-label="Title">
+                                            <div>{{s.mobile}}</div>
+                                           
+                                        </td>
+                                        <!-- <td class="text-muted" data-label="Role">
+                                            <div class="d-flex py-1 align-items-center">
+                                                {% for sp in staff_pass %}
+
+                                                {% if sp.staff.id == s.id %}
+                                                <span class="avatar me-2" style="background-image: url(../media/{{sp.passport}})"></span>
+                                                
+
+                                                {% endif %}
+                                                  
+
+                                               
+
+
+                                                {% endfor %}
+                                                
+
+                                        
+                                            </div>
+                                        </td> -->
+                                        <td>
+                                            <div class="btn-list flex-nowrap">
+                                                <a href="{% url 'staff_documents_add' s.id %}" class="btn">
+                                                    Edit
+                                                </a>
+                                                
+                                            </div>
+                                        </td>
+                                    </tr>
+                                   
+                                    {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    var navLink = document.querySelector('.nav-pro');
+    navLink.classList.add('active');
+</script>
+
+
+{% endfor %}
+{% endblock %}

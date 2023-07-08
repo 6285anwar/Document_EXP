@@ -1,0 +1,699 @@
+{% extends 'navbar.html' %}
+{% block content %}
+{% load static %}
+
+
+
+<div class="page-wrapper">
+    <div class="page-body">
+        <div class="container-xl">
+            <div class="row row-cards">
+                <div class="col-12">
+
+                    <div class="card-body">
+                        <div class="row row-cards">
+                            <div class="col-md-3">
+                                <div class="mb-3">
+                                    <label class="form-label">Document Type:</label>
+
+                                    <select class="form-select" id="documentType">
+                                        <option value="Land Map">Land Map</option>
+                                        <option value="Company License">Company License</option>
+                                        <option value="Agreement">Agreement</option>
+                                        <option value="Civil Defence">Civil Defence</option>
+                                        <option value="Chamber of Commerce">Chamber of Commerce</option>
+                                        <option value="Establishment Card">Establishment Card</option>
+                                        <option value="Labour Card">Labour Card</option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-9 ">
+                                <div class="row mt-2">
+
+
+
+                                    <div class="relatedclass" id="Land Map">
+                                        <div class="col-12">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h3 class="card-title">Land Map</h3>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="row row-cards">
+
+
+                                                        <div class="mb-3 col-sm-4 col-md-2">
+                                                            <label class="form-label required">Type</label>
+                                                            <select class="form-select" id="typeSelect">
+                                                                <option value="industrial">Industrial</option>
+                                                                <option value="commercial">Commercial</option>
+                                                            </select>
+                                                        </div>
+
+
+                                                        <div id="industrialWrapper" class="col-md-10 industrial"
+                                                            style="display: none;">
+
+                                                            <form action="{% url 'landmap_docsave' c.id %}"
+                                                                method="post" enctype="multipart/form-data">
+                                                                {% csrf_token %}
+
+                                                                <div class="row">
+                                                                    <div class="mb-3 col-md-4">
+                                                                        <label class="form-label required">Expiry
+                                                                            Date</label>
+                                                                        <div class="input-icon mb-2">
+                                                                            <input class="form-control" type="date"
+                                                                                name="exp_date" />
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="mb-3 col-md-5 col-8"
+                                                                        id="file-input-container">
+                                                                        <label
+                                                                            class="form-label required">Document</label>
+                                                                        <input name="docfile-1" type="file"
+                                                                            class="form-control mb-1">
+                                                                    </div>
+                                                                    <div class="mb-3 col-md-2 col-3">
+                                                                        <label class="form-label required"></label>
+
+
+                                                                        <a class="btn btn-outline-dark w-50 btn-icon"
+                                                                            onclick="addFileInput()">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                class="icon icon-tabler icon-tabler-file-plus"
+                                                                                width="24" height="24"
+                                                                                viewBox="0 0 24 24" stroke-width="2"
+                                                                                stroke="currentColor" fill="none"
+                                                                                stroke-linecap="round"
+                                                                                stroke-linejoin="round">
+                                                                                <path stroke="none" d="M0 0h24v24H0z"
+                                                                                    fill="none"></path>
+                                                                                <path d="M14 3v4a1 1 0 0 0 1 1h4">
+                                                                                </path>
+                                                                                <path
+                                                                                    d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z">
+                                                                                </path>
+                                                                                <path d="M12 11l0 6"></path>
+                                                                                <path d="M9 14l6 0"></path>
+                                                                            </svg></a>
+
+
+
+                                                                    </div>
+
+                                                                    <input type="text" name="lm_type" value="industrial"
+                                                                        hidden>
+                                                                    <input type="text" name="lm_file_count"
+                                                                        id="totalfilerows" value="1" hidden>
+
+
+
+
+                                                                </div>
+
+
+
+                                                                <div class="card-footer text-end">
+                                                                    <button class="btn btn-outline-primary"
+                                                                        type="submit">Save</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+
+
+
+
+
+
+
+
+
+                                                        <div id="commercialWrapper" class="col-md-10 commercial"
+                                                            style="display: none;">
+                                                            <form action="{% url 'landmap_docsave' c.id %}"
+                                                                method="post" enctype="multipart/form-data">
+                                                                {% csrf_token %}
+
+                                                                <div class="row">
+                                                                    <div class="mb-3 col-md-5">
+                                                                        <label
+                                                                            class="form-label required">Document</label>
+                                                                        <input name="file[]" type="file" multiple
+                                                                            class="form-control">
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <input type="text" name="lm_type" value="commercial"
+                                                                    hidden>
+
+                                                                <div class="card-footer text-end">
+                                                                    <button class="btn btn-outline-primary"
+                                                                        type="submit">Save</button>
+                                                                </div>
+                                                            </form>
+
+
+                                                        </div>
+
+
+
+
+
+
+
+
+
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+
+                                    <div class="relatedclass" id="Company License">
+                                        <div class="col-12">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h3 class="card-title">Company License</h3>
+                                                </div>
+
+
+                                                <form action="{% url 'doc_file_save' c.id %}" enctype="multipart/form-data"  method="post">
+                                                    {% csrf_token %}
+                                                    <div class="card-body">
+
+                                                        <div class="table-responsive">
+                                                            <table class="table mb-0">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Document</th>
+                                                                        <th>Exp Date</th>
+
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <input type="file" class="form-control" name="files[]" multiple>
+                                                                        </td>
+                                                                        <td>
+                                                                            <input type="date" class="form-control" name="expdate">
+                                                                        </td>
+
+                                                                        <input type="text" class="form-control" hidden value="Company License" name="docname">
+
+                                                                    </tr>
+
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-footer text-end">
+                                                        <button type="submit"
+                                                            class="btn btn-outline-primary">Save</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+
+
+
+                                    <div class="relatedclass" id="Agreement">
+                                        <div class="col-12">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h3 class="card-title">Agreement</h3>
+                                                </div>
+                                                <form action="{% url 'doc_file_save' c.id %}" enctype="multipart/form-data"  method="post">
+                                                    {% csrf_token %}
+                                                    <div class="card-body">
+                                                        <div class="table-responsive">
+                                                            <table class="table mb-0">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Document</th>
+                                                                        <th>Exp Date</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <input type="file" class="form-control" name="files[]" multiple>
+                                                                        </td>
+                                                                        <td>
+                                                                            <input type="date" class="form-control" name="expdate">
+                                                                        </td>
+
+                                                                        <input type="text" class="form-control" hidden value="Agreement" name="docname">
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-footer text-end">
+                                                        <button type="submit"
+                                                            class="btn btn-outline-primary">Save</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="relatedclass" id="Civil Defence">
+                                        <div class="col-12">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h3 class="card-title">Civil Defence</h3>
+                                                </div>
+                                                <form action="{% url 'doc_file_save' c.id %}" enctype="multipart/form-data"  method="post">
+                                                    {% csrf_token %}
+                                                    <div class="card-body">
+                                                        <div class="table-responsive">
+                                                            <table class="table mb-0">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Document</th>
+                                                                        <th>Exp Date</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <input type="file" class="form-control" name="files[]" multiple>
+                                                                        </td>
+                                                                        <td>
+                                                                            <input type="date" class="form-control" name="expdate">
+                                                                        </td>
+
+                                                                        <input type="text" class="form-control" hidden value="Civil Defence" name="docname">
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-footer text-end">
+                                                        <button type="submit"
+                                                            class="btn btn-outline-primary">Save</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="relatedclass" id="Chamber of Commerce">
+                                        <div class="col-12">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h3 class="card-title">Chamber of Commerce</h3>
+                                                </div>
+                                                <form action="{% url 'doc_file_save' c.id %}" enctype="multipart/form-data"  method="post">
+                                                    {% csrf_token %}
+                                                    <div class="card-body">
+                                                        <div class="table-responsive">
+                                                            <table class="table mb-0">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Document</th>
+                                                                        <th>Exp Date</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <input type="file" class="form-control" name="files[]" multiple>
+                                                                        </td>
+                                                                        <td>
+                                                                            <input type="date" class="form-control" name="expdate">
+                                                                        </td>
+
+                                                                        <input type="text" class="form-control" hidden value="Chamber of Commerce" name="docname">
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-footer text-end">
+                                                        <button type="submit"
+                                                            class="btn btn-outline-primary">Save</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="relatedclass" id="Establishment Card">
+                                        <div class="col-12">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h3 class="card-title">Establishment Card (Immigration)</h3>
+                                                </div>
+                                                <form action="{% url 'doc_file_save' c.id %}" enctype="multipart/form-data"  method="post">
+                                                    {% csrf_token %}
+                                                    <div class="card-body">
+                                                        <div class="table-responsive">
+                                                            <table class="table mb-0">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Document</th>
+                                                                        <th>Exp Date</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <input type="file" class="form-control" name="files[]" multiple>
+                                                                        </td>
+                                                                        <td>
+                                                                            <input type="date" class="form-control" name="expdate">
+                                                                        </td>
+
+                                                                        <input type="text" class="form-control" hidden value="Establishment Card (Immigration)" name="docname">
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-footer text-end">
+                                                        <button type="submit"
+                                                            class="btn btn-outline-primary">Save</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="relatedclass" id="Labour Card">
+                                        <div class="col-12">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h3 class="card-title">Labour Card</h3>
+                                                </div>
+                                                <form action="{% url 'doc_file_save' c.id %}" enctype="multipart/form-data"  method="post">
+                                                    {% csrf_token %}
+                                                    <div class="card-body">
+                                                        <div class="table-responsive">
+                                                            <table class="table mb-0">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Document</th>
+                                                                        <th>Exp Date</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <input type="file" class="form-control" name="files[]" multiple>
+                                                                        </td>
+                                                                        <!-- <td>
+                                                                            <input type="date" class="form-control" name="expdate">
+                                                                        </td> -->
+
+                                                                        <input type="text" class="form-control" hidden value="Labour Card" name="docname">
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-footer text-end">
+                                                        <button type="submit"
+                                                            class="btn btn-outline-primary">Save</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                </div>
+                            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        </div>
+
+
+
+
+
+
+                    </div>
+
+
+
+
+
+
+
+
+                </div>
+
+
+
+                <div class="col-12">
+
+
+                    <div class="card">
+                        <div class="table-responsive">
+                            <table class="table table-vcenter card-table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Document Name</th>
+                                        <th>Exp Date</th>
+                                        <th>File</th>
+
+                                       
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    {% for m in mdd reversed %}
+                                    <tr>
+                                        <td>{{m.document_name}}
+                                            {% if m.document_type == 'industrial' %}
+                                            [industrial]
+                                            {% elif m.document_type == 'commercial' %}
+                                            [commercial]
+                                            {% endif %}
+                                        </td>
+                                        <td class="text-muted">
+                                            {{m.document_expiry}}
+                                        </td>
+                                        <td class="text-muted">
+                                            <div class="d-flex py-1 align-items-center">
+
+                                                {% for f in mdf %}
+                                                    {% if f.document_exp.id == m.id %}
+                                                    <a href=""></a>
+                                                <span class="avatar me-2" style="background-image: url(../media/{{f.main_file_document}})"></span>
+                                                    {% endif %}
+                                                {% endfor %}
+                                               
+                                            </div>
+                                        </td>
+                                        
+                                    </tr>
+                                    {% endfor %}
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+<script>
+    let fileInputCounter = 1;
+    function addFileInput() {
+        fileInputCounter++;
+        const container = document.getElementById('file-input-container');
+        const newFileInput = document.createElement('input');
+        newFileInput.name = `docfile-${fileInputCounter}`;
+        newFileInput.type = 'file';
+        newFileInput.className = 'form-control mb-1';
+        container.appendChild(newFileInput);
+        var hiddenInput = document.getElementById("totalfilerows");
+        hiddenInput.value = "";
+        hiddenInput.value += fileInputCounter;
+
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    // Get references to the select element and wrapper elements
+    const typeSelect = document.getElementById('typeSelect');
+    const industrialWrapper = document.getElementById('industrialWrapper');
+    const commercialWrapper = document.getElementById('commercialWrapper');
+
+    // Function to show the selected content
+    function showContent() {
+        const selectedValue = typeSelect.value;
+        if (selectedValue === 'industrial') {
+            industrialWrapper.style.display = 'block';
+            commercialWrapper.style.display = 'none';
+        } else if (selectedValue === 'commercial') {
+            industrialWrapper.style.display = 'none';
+            commercialWrapper.style.display = 'block';
+        } else {
+            industrialWrapper.style.display = 'none';
+            commercialWrapper.style.display = 'none';
+        }
+    }
+
+    // Add an event listener to the select element
+    typeSelect.addEventListener('change', showContent);
+
+    // Call the showContent function on page load to display the appropriate content
+    showContent();
+</script>
+
+<script>
+    function showHideRelatedElements() {
+        const selectedOption = document.getElementById('documentType').value;
+        const relatedElements = document.querySelectorAll('.row .relatedclass');
+        relatedElements.forEach((element) => {
+            element.style.display = 'none';
+        });
+        const relatedElement = document.getElementById(selectedOption);
+        if (relatedElement) {
+            relatedElement.style.display = 'block';
+        }
+    }
+    document.getElementById('documentType').addEventListener('change', showHideRelatedElements);
+    showHideRelatedElements();
+</script>
+
+
+<script>
+    var navLink = document.querySelector('.nav-pro');
+    navLink.classList.add('active');
+</script>
+
+
+
+{% endblock %}

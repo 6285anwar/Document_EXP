@@ -1,0 +1,404 @@
+{% extends 'navbar.html' %}
+{% block content %}
+{% load static %}
+
+
+<div class="page-wrapper">
+    <div class="page-body">
+        <div class="container-xl">
+            <div class="row row-cards">
+                <div class="col-12">
+
+                    <div class="col-12">
+
+                        <div class="card-body">
+                            <h3 class="card-title">Upload documents</h3>
+                            <div class="row row-cards">
+                                <div class="col-md-3">
+                                    <div class="mb-1">
+                                        <label class="form-label">Select Document</label>
+                                        <select class="form-select" id="documentType">
+                                            <option value="Passport">Passport</option>
+                                            <option value="Visa">Visa</option>
+                                            <option value="OfferLetter">Offer Letter</option>
+                                            <option value="Influencer">Influencer</option>
+                                            <option value="LabourBataka">Labour Bataka</option>
+                                            <option value="EntryVisa">Entry Visa</option>
+                                            <option value="Inout">In out</option>
+                                            <option value="Class">Class</option>
+                                            <option value="ID">ID</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-9 Passport" id="Passport">
+                                    <form class="row" action="{% url 'staff_doc_save' staff.id %}" method="post" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <div class="col-md-5">
+                                            <div class="mb-1">
+                                                <label class="form-label">Expiry Date</label>
+                                                <input type="date" class="form-control" name="date">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-5">
+                                            <div class="mb-1">
+                                                <label class="form-label">Passport Files</label>
+                                                <input type="file" class="form-control" name="files[]" multiple>
+                                            </div>
+                                        </div>
+                                        <input type="text" class="form-control" name="name" value="Passport" hidden>
+                                        <div class="col-md-2">
+                                            <div class="mb-1">
+                                                <label class="form-label">-</label>
+                                                <button type="submit" class="btn btn-outline-primary">Save</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+
+
+
+                                <div class="col-md-9 Visa" id="Visa">
+                                    <form class="row" action="{% url 'staff_doc_save' staff.id %}" method="post" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <div class="col-md-5">
+                                            <div class="mb-1">
+                                                <label class="form-label">Expiry Date</label>
+                                                <input type="date" class="form-control" name="date">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-5">
+                                            <div class="mb-1">
+                                                <label class="form-label">Visa Files</label>
+                                                <input type="file" class="form-control" name="files[]" multiple>
+                                            </div>
+                                        </div>
+                                        <input type="text" class="form-control" name="name" value="Visa" hidden>
+                                        <div class="col-md-2">
+                                            <div class="mb-1">
+                                                <label class="form-label">-</label>
+                                                <button type="submit" class="btn btn-outline-primary">Save</button>
+                                            </div>
+                                        </div>
+                                    
+                                    </form>
+
+                                </div>
+
+
+                                <div class="col-md-9 Offer Letter" id="OfferLetter">
+                                    <form class="row" action="{% url 'staff_doc_save' staff.id %}" method="post" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <div class="col-md-5">
+                                            <div class="mb-1">
+                                                <label class="form-label">Expiry Date</label>
+                                                <input type="date" class="form-control" name="date">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-5">
+                                            <div class="mb-1">
+                                                <label class="form-label">Offer Letter Files</label>
+                                                <input type="file" class="form-control" name="files[]" multiple>
+                                            </div>
+                                        </div>
+                                        <input type="text" class="form-control" name="name" value="Offer Letter" hidden>
+                                        <div class="col-md-2">
+                                            <div class="mb-1">
+                                                <label class="form-label">-</label>
+                                                <button type="submit" class="btn btn-outline-primary">Save</button>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                </div>
+
+
+
+                                <div class="col-md-9 Influencer" id="Influencer">
+                                    <form class="row" action="{% url 'staff_doc_save' staff.id %}" method="post" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <div class="col-md-5">
+                                            <div class="mb-1">
+                                                <label class="form-label">Expiry Date</label>
+                                                <input type="date" class="form-control" name="date">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-5">
+                                            <div class="mb-1">
+                                                <label class="form-label">Influencer Files</label>
+                                                <input type="file" class="form-control" name="files[]" multiple>
+                                            </div>
+                                        </div>
+                                        <input type="text" class="form-control" name="name" value="Influencer" hidden>
+                                        <div class="col-md-2">
+                                            <div class="mb-1">
+                                                <label class="form-label">-</label>
+                                                <button type="submit" class="btn btn-outline-primary">Save</button>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                </div>
+
+                                <div class="col-md-9 LabourBataka" id="LabourBataka">
+                                    <form class="row" action="{% url 'staff_doc_save' staff.id %}" method="post" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <div class="col-md-5">
+                                            <div class="mb-1">
+                                                <label class="form-label">Expiry Date</label>
+                                                <input type="date" class="form-control" name="date">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-5">
+                                            <div class="mb-1">
+                                                <label class="form-label">Labour Bataka Files</label>
+                                                <input type="file" class="form-control" name="files[]" multiple>
+                                            </div>
+                                        </div>
+                                        <input type="text" class="form-control" name="name" value="Labour Bataka" hidden>
+                                        <div class="col-md-2">
+                                            <div class="mb-1">
+                                                <label class="form-label">-</label>
+                                                <button type="submit" class="btn btn-outline-primary">Save</button>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                </div>
+
+
+                                <div class="col-md-9 EntryVisa" id="EntryVisa">
+                                    <form class="row" action="{% url 'staff_doc_save' staff.id %}" method="post" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <div class="col-md-5">
+                                            <div class="mb-1">
+                                                <label class="form-label">Expiry Date</label>
+                                                <input type="date" class="form-control" name="date">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-5">
+                                            <div class="mb-1">
+                                                <label class="form-label">Entry Visa Files</label>
+                                                <input type="file" class="form-control" name="files[]" multiple>
+                                            </div>
+                                        </div>
+                                        <input type="text" class="form-control" name="name" value="Entry Visa" hidden>
+                                        <div class="col-md-2">
+                                            <div class="mb-1">
+                                                <label class="form-label">-</label>
+                                                <button type="submit" class="btn btn-outline-primary">Save</button>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                </div>
+
+
+                                <div class="col-md-9 Inout" id="Inout">
+                                    <form class="row" action="{% url 'staff_doc_save' staff.id %}" method="post" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <div class="col-md-5">
+                                            <div class="mb-1">
+                                                <label class="form-label">Expiry Date</label>
+                                                <input type="date" class="form-control" name="date">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-5">
+                                            <div class="mb-1">
+                                                <label class="form-label">In Out Files</label>
+                                                <input type="file" class="form-control" name="files[]" multiple>
+                                            </div>
+                                        </div>
+                                        <input type="text" class="form-control" name="name" value="In out" hidden>
+                                        <div class="col-md-2">
+                                            <div class="mb-1">
+                                                <label class="form-label">-</label>
+                                                <button type="submit" class="btn btn-outline-primary">Save</button>
+                                            </div>
+                                        </div>
+                                    </form>
+
+
+                                </div>
+
+
+                                <div class="col-md-9 Class" id="Class">
+                                    <form class="row" action="{% url 'staff_doc_save' staff.id %}" method="post" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <div class="col-md-5">
+                                            <div class="mb-1">
+                                                <label class="form-label">Expiry Date</label>
+                                                <input type="date" class="form-control" name="date">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-5">
+                                            <div class="mb-1">
+                                                <label class="form-label">Class Files</label>
+                                                <input type="file" class="form-control" name="files[]" multiple>
+                                            </div>
+                                        </div>
+                                        <input type="text" class="form-control" name="name" value="Class" hidden>
+                                        <div class="col-md-2">
+                                            <div class="mb-1">
+                                                <label class="form-label">-</label>
+                                                <button type="submit" class="btn btn-outline-primary">Save</button>
+                                            </div>
+                                        </div>
+                                    </form>
+
+
+                                </div>
+
+
+                                <div class="col-md-9 ID" id="ID">
+                                    <form class="row" action="{% url 'staff_doc_save' staff.id %}" method="post" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <div class="col-md-5">
+                                            <div class="mb-1">
+                                                <label class="form-label">Expiry Date</label>
+                                                <input type="date" class="form-control" name="date">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-5">
+                                            <div class="mb-1">
+                                                <label class="form-label">ID Files</label>
+                                                <input type="file" class="form-control" name="files[]" multiple>
+                                            </div>
+                                        </div>
+                                        <input type="text" class="form-control" name="name" value="ID" hidden>
+                                        <div class="col-md-2">
+                                            <div class="mb-1">
+                                                <label class="form-label">-</label>
+                                                <button type="submit" class="btn btn-outline-primary">Save</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+
+                    <div class="col-12">
+
+
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-vcenter card-table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Document Name</th>
+                                            <th>Exp Date</th>
+                                            <th>File</th>
+    
+                                           
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+    
+                                        {% for sd in staffdoc reversed %}
+                                          
+                                       
+                                       
+                                        <tr>
+                                            <td>{{sd.s_documetname}}
+                                            </td>
+                                            <td class="text-muted">
+                                               {{sd.s_documetexp}}
+                                            </td>
+                                            <td class="text-muted">
+                                                <div class="d-flex py-1 align-items-center">
+    
+                                                    {% for f in sfile %}
+                                                        {% if f.staff_doc.id == sd.id %}
+                                                        <a href=""></a>
+                                                    <span class="avatar me-2" style="background-image: url(../media/{{f.s_documetfile}})"></span>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                   
+                                                </div>
+                                            </td>
+                                            
+                                        </tr>
+    
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.col-md-9').hide();
+        var selectedValue = $('#documentType').val();
+        $('#' + selectedValue).show();
+        $('#documentType').on('change', function() {
+            var selectedValue = $(this).val();
+            $('.col-md-9').hide();
+            $('#' + selectedValue).show();
+        });
+    });
+</script>
+
+
+
+
+{% endblock %}

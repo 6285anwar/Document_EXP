@@ -1,0 +1,117 @@
+{% extends 'navbar.html' %}
+{% block content %}
+{% load static %}
+
+<div class="page-wrapper">
+    <div class="page-body">
+        <div class="container-xl">
+            <div class="row row-cards align-items-center justify-content-center">
+                <div class="col-md-6 ">
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Update {{doc.document_name}} Document in {{doc.company}}</h3>
+                        </div>
+                        <div class="card-body">
+
+                            {% if doc.document_type == 'industrial' %}
+                            <form action="{% url 'update_property_doc' doc.id %}" method="post"
+                                enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="mb-3 row">
+                                    <label class="col-3 col-form-label required">Expiry date</label>
+                                    <div class="col">
+                                        <input type="date" class="form-control" name="date">
+
+                                    </div>
+                                </div>
+                                <input type="type" class="form-control" hidden name="type" value="2">
+                                <div class="mb-3 row">
+                                    <label class="col-3 col-form-label required">New Documents</label>
+                                    <div class="col">
+                                        <input type="file" class="form-control" multiple name="files[]">
+
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="card-footer text-end">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+
+                        </form>
+                        {% elif doc.document_type == 'commercial' or doc.document_name == 'Labour Card' %}
+
+                        <form action="{% url 'update_property_doc' doc.id %}" method="post"
+                                enctype="multipart/form-data">
+                                {% csrf_token %}
+                        <div class="mb-3 row">
+                            <input type="type" class="form-control" hidden name="type" value="1">
+                            <label class="col-3 col-form-label required">New Documents</label>
+                            <div class="col">
+                                <input type="file" class="form-control" multiple name="files[]">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer text-end">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                    </form>
+
+                    {% else %}
+
+                    <form action="{% url 'update_property_doc' doc.id %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+
+                        <div class="mb-3 row">
+                            <label class="col-3 col-form-label required">Expiry date</label>
+                            <div class="col">
+                                <input type="date" class="form-control" name="date">
+                                <input type="type" class="form-control" hidden name="type" value="3">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label class="col-3 col-form-label required">New Documents</label>
+                            <div class="col">
+                                <input type="file" class="form-control" multiple name="files[]">
+
+                            </div>
+                        </div>
+
+                </div>
+                <div class="card-footer text-end">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+
+                </form>
+
+
+
+                {% endif %}
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+
+
+{% endblock %}

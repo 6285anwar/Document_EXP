@@ -1,0 +1,364 @@
+{% extends 'navbar.html' %}
+{% block content %}
+{% load static %}
+
+<div class="page-wrapper">
+    <div class="container-xl">
+        <!-- Page title -->
+        <div class="page-header d-print-none">
+            <div class="row align-items-center">
+                <div class="col">
+
+                    <h2 class="page-title">
+                        Dashboard
+                    </h2>
+                </div>
+                <!-- Page title actions -->
+                <div class="col-auto ms-auto d-print-none">
+                    <div class="btn-list">
+                        <span class="d-none d-sm-inline">
+                            <a href="#" class="btn btn-white">
+                                New view
+                            </a>
+                        </span>
+                        <a href="u" class="btn btn-primary d-none d-sm-inline-block" data-bs-toggle="modal"
+                            data-bs-target="#modal-report">
+                            <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <line x1="12" y1="5" x2="12" y2="19" />
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                            </svg>
+                            Create new Property
+                        </a>
+                        <a href="#" class="btn btn-primary d-sm-none btn-icon" data-bs-toggle="modal"
+                            data-bs-target="#modal-report" aria-label="Create new report">
+                            <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <line x1="12" y1="5" x2="12" y2="19" />
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                            </svg>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="page-body">
+        <div class="container-xl">
+            <div class="row row-deck row-cards">
+
+
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <div class="subheader">Documents</div>
+                                <div class="ms-auto lh-1">
+                                    <!-- <div class="dropdown">
+                              <a class="dropdown-toggle text-muted" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Last 7 days</a>
+                              <div class="dropdown-menu dropdown-menu-end">
+                                <a class="dropdown-item active" href="#">Last 7 days</a>
+                                <a class="dropdown-item" href="#">Last 30 days</a>
+                                <a class="dropdown-item" href="#">Last 3 months</a>
+                              </div>
+                            </div> -->
+                                </div>
+                            </div>
+                            <div class="h1 mb-3">75</div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <div class="subheader">Staffs</div>
+                                <div class="ms-auto lh-1">
+                                    <!-- <div class="dropdown">
+                              <a class="dropdown-toggle text-muted" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Last 7 days</a>
+                              <div class="dropdown-menu dropdown-menu-end">
+                                <a class="dropdown-item active" href="#">Last 7 days</a>
+                                <a class="dropdown-item" href="#">Last 30 days</a>
+                                <a class="dropdown-item" href="#">Last 3 months</a>
+                              </div>
+                            </div> -->
+                                </div>
+                            </div>
+                            <div class="h1 mb-3">75</div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <div class="subheader">Staffs Document</div>
+                                <div class="ms-auto lh-1">
+                                    <!-- <div class="dropdown">
+                              <a class="dropdown-toggle text-muted" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Last 7 days</a>
+                              <div class="dropdown-menu dropdown-menu-end">
+                                <a class="dropdown-item active" href="#">Last 7 days</a>
+                                <a class="dropdown-item" href="#">Last 30 days</a>
+                                <a class="dropdown-item" href="#">Last 3 months</a>
+                              </div>
+                            </div> -->
+                                </div>
+                            </div>
+                            <div class="h1 mb-3">75</div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <div class="subheader">Staffs Document</div>
+                                <div class="ms-auto lh-1">
+                                    <!-- <div class="dropdown">
+                              <a class="dropdown-toggle text-muted" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Last 7 days</a>
+                              <div class="dropdown-menu dropdown-menu-end">
+                                <a class="dropdown-item active" href="#">Last 7 days</a>
+                                <a class="dropdown-item" href="#">Last 30 days</a>
+                                <a class="dropdown-item" href="#">Last 3 months</a>
+                              </div>
+                            </div> -->
+                                </div>
+                            </div>
+                            <div class="h1 mb-3">75</div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header border-0">
+                            <div class="card-title">Upcoming 30days Company-Document Renewals</div>
+                        </div>
+
+                        <div class="card-table table-responsive">
+                            <table class="table table-vcenter cdoc" id="cdoc">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Company</th>
+                                        <th>Documents</th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    {% for ur in upcoming_renewals %}
+
+                                    <tr onclick="window.location=window.location.origin+'/update_property_doc/{{ur.id}}';">
+                                        <td class="w-1">
+                                            <span class="avatar avatar-sm"
+                                                style="background-image: url(../media/{{ur.company.photo}})"></span>
+                                        </td>
+
+                                        <td class="text-nowrap">{{ur.company}}</td>
+                                        <td class="text-nowrap text-muted">{{ur.document_name}}</td>
+
+                                        <td class="text-nowrap text-muted" id="dates1">{{ur.document_expiry}}</td>
+                                    </tr>
+
+                                    {% endfor %}
+
+
+
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header border-0">
+                            <div class="card-title">Upcoming 30days Staff-Document Renewals</div>
+                        </div>
+
+                        <div class="card-table table-responsive">
+                            <table class="table table-vcenter tablestaff" id="stafftable">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Company</th>
+                                        <th></th>
+                                        <th>Staff</th>
+                                        <th>Documents</th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    {% for sr in staffupcoming_renewals %}
+
+                                    <tr onclick="window.location=window.location.origin+'/update_staff_doc/{{sr.staff.id}}';">
+                                        <td class="w-1">
+                                            <span class="avatar avatar-sm"
+                                                style="background-image: url(../media/{{sr.staff.company.photo}})"></span>
+                                        </td>
+
+                                        <td class="text-nowrap">{{sr.staff.company}}</td>
+                                        <td class="w-1">
+                                            <span class="avatar avatar-sm"
+                                                style="background-image: url(../media/{{sr.staff.photo}})"></span>
+                                        </td>
+
+                                        <td class="text-nowrap text-muted">{{sr.staff.fullname}}</td>
+                                        <td class="text-nowrap text-muted">{{sr.s_documetname}}</td>
+
+                                        <td class="text-nowrap text-muted" id="dates">{{sr.s_documetexp}}</td>
+                                    </tr>
+
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    const dateElements = document.querySelectorAll('#stafftable tbody #dates');
+    const dates = Array.from(dateElements).map(dateElement => {
+        const dateStr = dateElement.textContent;
+        const [month, day, year] = dateStr.split(' ');
+        const date = new Date(`${month} ${day}, ${year}`);
+        return { date, element: dateElement };
+    });
+
+    dates.sort((a, b) => a.date - b.date);
+    const tbody = document.querySelector('#stafftable tbody');
+    dates.forEach(({ element }) => {
+        tbody.appendChild(element.parentNode);
+    });
+
+</script>
+
+
+<script>
+
+    const dateElements1 = document.querySelectorAll('#cdoc tbody #dates1');
+    const dates1 = Array.from(dateElements1).map(dateElement => {
+        const dateStr = dateElement.textContent;
+        const [month, day, year] = dateStr.split(' ');
+        const date = new Date(`${month} ${day}, ${year}`);
+        return { date, element: dateElement };
+    });
+
+    dates1.sort((a, b) => a.date - b.date);
+    const tbody1 = document.querySelector('#cdoc tbody');
+    dates1.forEach(({ element }) => {
+        tbody1.appendChild(element.parentNode);
+    });
+
+</script>
+
+
+
+
+
+
+
+<script>
+
+    function saveKeyValueToSessionStorage(key, value) {
+        sessionStorage.setItem(key, value);
+    }
+    window.onload = function () {
+        var key = "Theme";
+        var value = "DARK";
+        saveKeyValueToSessionStorage(key, value);
+    };
+</script>
+
+
+
+<script>
+    var navLink = document.querySelector('.nav-dash');
+    navLink.classList.add('active');
+</script>
+
+{% endblock %}

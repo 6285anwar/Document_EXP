@@ -1,0 +1,126 @@
+{% extends 'navbar.html' %}
+{% block content %}
+{% load static %}
+
+
+<div class="page-wrapper">
+    <div class="container-xl">
+        <div class="page-body">
+            <div class="container-md">
+
+
+                <div class="col-12">
+
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Invoices</h3>
+                        </div>
+                        <div class="card-body border-bottom py-3">
+                            <div class="d-flex">
+                                <div class="text-muted">
+
+                         
+asd
+                                </div>
+                                <div class="ms-auto text-muted">
+                                    Search:
+                                    <div class="ms-2 d-inline-block">
+                                        <input type="text" class="form-control form-control-sm"
+                                            aria-label="Search invoice">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table card-table table-vcenter text-nowrap datatable">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>
+
+                                            <select name="" id="" class="form-control">
+                                                <option value="">Company</option>
+                                                <option value="">Company</option>
+                                                <option value="">Company</option>
+                                                <option value="">Company</option>
+
+                                                
+                                            </select>
+                                            
+                                        
+
+
+
+                                        </th>
+                                        <th> <select name="" id="" class="form-control">
+                                            <option value="">Document</option>
+                                            <option value="">Company</option>
+                                            <option value="">Company</option>
+                                            <option value="">Company</option>
+
+                                            
+                                        </select>
+
+                                        </th>
+                                        <th>Expiry Date</th>
+                                        
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    {% for d in docs %}
+                                    <tr>
+                                        <td></td>
+                                        <td>
+                                            {{d.company}}
+                                        </td>
+                                        <td>
+                                           {{d.document_name}}
+                                        </td>
+                                        <td>
+                                            {{d.document_expiry}}
+                                        </td>
+                                        <td class="text-end">
+                                            <button class="btn btn-outline-primary">Update</button>
+                                            <button class="btn btn-outline-danger">Delete</button>
+
+                                        </td>
+                                    </tr>
+                                      
+                                    {% endfor %}
+
+
+
+                                    
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                    </div>
+
+
+
+
+
+
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    var navLink = document.querySelector('.nav-doc');
+    navLink.classList.add('active');
+</script>
+
+{% endblock %}

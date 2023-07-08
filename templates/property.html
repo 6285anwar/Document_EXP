@@ -1,0 +1,928 @@
+{% extends 'navbar.html' %}
+{% block content %}
+{% load static %}
+
+<style>
+    .text {
+        margin-left: 4px;
+    }
+
+    @media (max-width: 767px) {
+        .icon-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .text {
+            display: none;
+        }
+    }
+</style>
+
+
+<div class="page-wrapper">
+    <div class="page-body">
+        <div class="container-xl">
+            <div class="row row-cards">
+
+
+
+
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <ul class="nav nav-tabs card-header-tabs nav-fill" data-bs-toggle="tabs">
+                                <li class="nav-item">
+                                    <a href="#tabs-home-7" class="nav-link active" data-bs-toggle="tab">
+                                        <!-- Download SVG icon from http://tabler-icons.io/i/home -->
+                                        <div class="icon-container">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                                stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
+                                                <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+                                                <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+                                            </svg>
+                                        </div>
+                                        <span class="text">Profile</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#tabs-profile-7" class="nav-link" data-bs-toggle="tab">
+                                        <!-- Download SVG icon from http://tabler-icons.io/i/user -->
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="icon icon-tabler icon-tabler-user" width="24" height="24"
+                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"></path>
+                                            <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+                                        </svg>
+                                        <span class="text">Owner Details</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#tabs-activity-7" class="nav-link" data-bs-toggle="tab">
+                                        <!-- Download SVG icon from http://tabler-icons.io/i/activity -->
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="icon icon-tabler icon-tabler-lock-cog" width="24" height="24"
+                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <path
+                                                d="M12 21h-5a2 2 0 0 1 -2 -2v-6a2 2 0 0 1 2 -2h10c.564 0 1.074 .234 1.437 .61">
+                                            </path>
+                                            <path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0"></path>
+                                            <path d="M8 11v-4a4 4 0 1 1 8 0v4"></path>
+                                            <path d="M19.001 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
+                                            <path d="M19.001 15.5v1.5"></path>
+                                            <path d="M19.001 21v1.5"></path>
+                                            <path d="M22.032 17.25l-1.299 .75"></path>
+                                            <path d="M17.27 20l-1.3 .75"></path>
+                                            <path d="M15.97 17.25l1.3 .75"></path>
+                                            <path d="M20.733 20l1.3 .75"></path>
+                                        </svg>
+                                        <span class="text">Credentials</span>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="#tabs-activity-8" class="nav-link" data-bs-toggle="tab">
+                                        <!-- Download SVG icon from http://tabler-icons.io/i/activity -->
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="icon icon-tabler icon-tabler-file-zip" width="24" height="24"
+                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <path
+                                                d="M6 20.735a2 2 0 0 1 -1 -1.735v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2h-1">
+                                            </path>
+                                            <path
+                                                d="M11 17a2 2 0 0 1 2 2v2a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1v-2a2 2 0 0 1 2 -2z">
+                                            </path>
+                                            <path d="M11 5l-1 0"></path>
+                                            <path d="M13 7l-1 0"></path>
+                                            <path d="M11 9l-1 0"></path>
+                                            <path d="M13 11l-1 0"></path>
+                                            <path d="M11 13l-1 0"></path>
+                                            <path d="M13 15l-1 0"></path>
+                                        </svg>
+                                        <span class="text">Property Documents</span>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="#tabs-activity-9" class="nav-link" data-bs-toggle="tab">
+                                        <!-- Download SVG icon from http://tabler-icons.io/i/activity -->
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="icon icon-tabler icon-tabler-users-group" width="24" height="24"
+                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <path d="M10 13a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
+                                            <path d="M8 21v-1a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v1"></path>
+                                            <path d="M15 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
+                                            <path d="M17 10h2a2 2 0 0 1 2 2v1"></path>
+                                            <path d="M5 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
+                                            <path d="M3 13v-1a2 2 0 0 1 2 -2h2"></path>
+                                        </svg>
+                                        <span class="text">Staff Documents</span>
+                                    </a>
+                                </li>
+
+
+
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <div class="tab-content">
+                                <div class="tab-pane active show" id="tabs-home-7">
+
+                                    <div class="col d-flex flex-column">
+                                        <div class="card-body">
+                                            <h2 class="mb-4">{{company.company_name}} - [{{company.property_code}}]</h2>
+                                            <h3 class="card-title mt-4">Company Profile</h3>
+
+                                            <div class="row align-items-center">
+                                                <div class="col-auto">
+                                                    <span class="avatar avatar-xl" id="avatarPreview"
+                                                        style="background-image: url(../media/{{company.photo}})"></span>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <form action="{% url 'property_update' company.id %}" method="post"
+                                                        enctype="multipart/form-data">
+                                                        {% csrf_token %}
+                                                        <input type="text" value="1" hidden name="pic">
+                                                        <input type="file" id="avatarInput" style="display: none;"
+                                                            name="profile_photo">
+                                                        <button id="saveButton" class="btn"
+                                                            style="display: none;">Save</button>
+                                                    </form>
+
+                                                    <button id="changeAvatarButton" class="btn">
+                                                        Change avatar
+                                                    </button>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a href="#" class="btn btn-ghost-danger" id="dltbtn">
+                                                        Delete avatar
+                                                    </a>
+                                                </div>
+                                            </div>
+
+
+                                            <form class="row g-3 mt-3" action="{% url 'property_update' company.id %}"
+                                                method="post" enctype="multipart/form-data">
+                                                {% csrf_token %}
+                                                <div class="col-md">
+                                                    <div class="form-label">Company Name</div>
+                                                    <input type="text" value="2" hidden name="pic">
+                                                    <input type="text" class="form-control"
+                                                        value="{{company.company_name}}" name="name">
+                                                </div>
+                                                <div class="col-md">
+                                                    <div class="form-label">Phone</div>
+                                                    <input type="text" class="form-control" value="{{company.phone}}"
+                                                        name="phone">
+                                                </div>
+                                                <div class="col-md">
+                                                    <div class="form-label">Location</div>
+                                                    <input type="text" class="form-control" value="{{company.location}}"
+                                                        name="loc">
+                                                </div>
+                                                <div class="col-md">
+                                                    <div class="form-label">-</div>
+                                                    <button type="submit"
+                                                        class="btn btn-outline-primary">Update</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                </div>
+                                <div class="tab-pane" id="tabs-profile-7">
+
+                                    <div class="col d-flex flex-column">
+                                        <div class="card-body">
+
+
+
+                                            <div class="table-responsive">
+                                                <table class="table table-vcenter card-table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Owner Type</th>
+                                                            <th>Phone</th>
+                                                            <th class="w-1 text-end">
+                                                                <input type="text" value="" class="w-75" id="Searchbox"
+                                                                    placeholder="Search..">
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {% for o in owners %}
+
+                                                        <tr class="owner-row" id="{{o.id}}">
+                                                            <td data-label="Name">
+                                                                <div class="d-flex py-1 align-items-center">
+                                                                    <span class="avatar me-2"
+                                                                        style="background-image: url(../media/{{company.photo}})"></span>
+                                                                    <div class="flex-fill">
+                                                                        <div class="font-weight-medium">{{o.owner_name}}
+                                                                        </div>
+                                                                    </div>
+                                                            </td>
+                                                            <td data-label="Title">
+                                                                <div class="text-uppercase">{{o.owner_type}}</div>
+                                                            </td>
+                                                            <td class="text-muted" data-label="Role">
+                                                                {{o.owner_phone}}
+                                                            </td>
+                                                            <td>
+                                                                <div class="btn-list flex-nowrap">
+                                                                    <a class="btn btn-ghost-primary"
+                                                                        onclick="viewowner('{{o.id}}')">
+                                                                        View
+                                                                    </a>
+                                                                    <a class="btn btn-ghost-warning"
+                                                                        onclick="editowner('{{o.id}}')">
+                                                                        Edit
+                                                                    </a>
+                                                                    <a href="{% url 'delete_owner' o.id %}"
+                                                                        class="btn btn-ghost-danger">
+                                                                        Delete
+                                                                    </a>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr id="card-{{o.id}}" class="owner-docs" hidden>
+                                                            <td colspan="4">
+                                                                <h3 class="card-title mb-2"><u>Documents :</u></h3>
+                                                                <div class="row">
+                                                                    {% for d in doc %}
+                                                                    {% if d.owner.id == o.id %}
+                                                                    <div class="col-3 mb-2">
+                                                                        <h4 class="card-title">{{d.owner_document_name}}
+                                                                        </h4>
+                                                                        <div class="ratio ratio-16x9">
+                                                                            <a href="{{d.owner_document.url}}"
+                                                                                class="ratio ratio-16x9">
+                                                                                <img src="{{d.owner_document.url}}"
+                                                                                    class="rounded object-cover"
+                                                                                    alt="Enable analytics tracking">
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                    {% endif %}
+                                                                    {% endfor %}
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr id="cardedit-{{o.id}}" class="owner-docs" hidden>
+                                                            <td colspan="4">
+
+                                                                <form action="{% url 'save_property' o.id %}"
+                                                                    method="post" enctype="multipart/form-data">
+                                                                    {% csrf_token %}
+                                                                    <div class="row">
+                                                                        <div class="col-4 mb-2">
+                                                                            <input type="text" class="form-control"
+                                                                                name="dname" required>
+                                                                        </div>
+                                                                        <div class="col-1 mb-2 text-end">
+                                                                            <span class="avatar me-2"
+                                                                                style="background-image: url()"></span>
+                                                                        </div>
+                                                                        <div class="col-3 mb-2">
+                                                                            <input type="file" class="form-control"
+                                                                                name="dfile" required>
+                                                                        </div>
+                                                                        <div class="col-1 mb-3">
+                                                                            <button type="submit"
+                                                                                class="btn btn-outline-tabler">Add
+                                                                                Document</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+
+
+                                                                {% for d in doc %}
+                                                                {% if d.owner.id == o.id %}
+
+                                                                <form action="{% url 'update_property' d.id %}"
+                                                                    method="post" enctype="multipart/form-data">
+                                                                    {% csrf_token %}
+                                                                    <div class="row">
+                                                                        <div class="col-3 mb-2">
+                                                                            <input type="text" class="form-control"
+                                                                                value="{{d.owner_document_name}}"
+                                                                                name="dname">
+                                                                        </div>
+                                                                        <div class="col-1 mb-2 text-end">
+                                                                            <span class="avatar me-2"
+                                                                                style="background-image: url(../media/{{d.owner_document}})"></span>
+                                                                        </div>
+                                                                        <div class="col-3 mb-2">
+                                                                            <input type="file" class="form-control"
+                                                                                value="{{d.owner_document.url}}"
+                                                                                name="dfile">
+                                                                        </div>
+                                                                        <div class="col-2 mb-3">
+                                                                            <button type="submit"
+                                                                                class="btn btn-outline-tabler">
+                                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                    class="icon icon-tabler icon-tabler-edit"
+                                                                                    width="24" height="24"
+                                                                                    viewBox="0 0 24 24" stroke-width="2"
+                                                                                    stroke="currentColor" fill="none"
+                                                                                    stroke-linecap="round"
+                                                                                    stroke-linejoin="round">
+                                                                                    <path stroke="none"
+                                                                                        d="M0 0h24v24H0z" fill="none">
+                                                                                    </path>
+                                                                                    <path
+                                                                                        d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1">
+                                                                                    </path>
+                                                                                    <path
+                                                                                        d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z">
+                                                                                    </path>
+                                                                                    <path d="M16 5l3 3"></path>
+                                                                                </svg>
+                                                                            </button>
+                                                                        </div>
+                                                                </form>
+                                                                <div class="col-2 mb-3">
+                                                                    <a href="{% url 'delete_property' d.id %}">
+                                                                        <button type="button"
+                                                                            class="btn btn-outline-youtube">
+
+                                                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                class="icon icon-tabler icon-tabler-trash"
+                                                                                width="24" height="24"
+                                                                                viewBox="0 0 24 24" stroke-width="2"
+                                                                                stroke="currentColor" fill="none"
+                                                                                stroke-linecap="round"
+                                                                                stroke-linejoin="round">
+                                                                                <path stroke="none" d="M0 0h24v24H0z"
+                                                                                    fill="none"></path>
+                                                                                <path d="M4 7l16 0"></path>
+                                                                                <path d="M10 11l0 6"></path>
+                                                                                <path d="M14 11l0 6"></path>
+                                                                                <path
+                                                                                    d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12">
+                                                                                </path>
+                                                                                <path
+                                                                                    d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3">
+                                                                                </path>
+                                                                            </svg>
+                                                                        </button>
+                                                                    </a>
+                                                                </div>
+
+                                            </div>
+
+
+                                            {% endif %}
+                                            {% endfor %}
+
+                                            </td>
+                                            </tr>
+
+
+                                            {% endfor %}
+                                            </tbody>
+                                            </table>
+                                        </div>
+
+
+
+
+
+
+
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+
+
+                            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            <div class="tab-pane" id="tabs-activity-7">
+
+
+
+
+
+                                <div class="col-12">
+                                    <div class="card">
+
+                                        <div class="card-body">
+
+                                            <div class="form-label">UserID's and Password</div>
+                                            <div class="table-responsive">
+                                                <table class="table mb-0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Userid</th>
+                                                            <th>Paassword</th>
+                                                            <th>Email</th>
+                                                            <th>Mobile</th>
+                                                            <th>Files</th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+
+                                                        {% for cm in cc %}
+                                                        <tr>
+                                                            <td>
+                                                                <input type="text" class="form-control" readonly
+                                                                    value="{{cm.name}}">
+                                                            </td>
+                                                            <td>
+                                                                <input type="text" class="form-control" readonly
+                                                                    value="{{cm.userid}}">
+                                                            </td>
+                                                            <td>
+                                                                <div class="row">
+                                                                    <input type="text" class="form-control col" readonly
+                                                                        value="{{cm.password}}"
+                                                                        id="showpassinputboxs{{cm.id}}">
+                                                                    <h4 id="showpassinputbox{{cm.id}}"
+                                                                        class="form-control col" hidden></h4>
+
+
+
+                                                                    <a class="btn btn-outline-dark w-25 btn-icon "
+                                                                        id="eye1" onclick="ZubcwEsdkf('{{cm.id}}')"
+                                                                        aria-label="Twitter">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                                            class="icon icon-tabler icon-tabler-binary"
+                                                                            width="24" height="24" viewBox="0 0 24 24"
+                                                                            stroke-width="2" stroke="currentColor"
+                                                                            fill="none" stroke-linecap="round"
+                                                                            stroke-linejoin="round">
+                                                                            <path stroke="none" d="M0 0h24v24H0z"
+                                                                                fill="none"></path>
+                                                                            <path d="M11 10v-5h-1m8 14v-5h-1"></path>
+                                                                            <path
+                                                                                d="M15 5m0 .5a.5 .5 0 0 1 .5 -.5h2a.5 .5 0 0 1 .5 .5v4a.5 .5 0 0 1 -.5 .5h-2a.5 .5 0 0 1 -.5 -.5z">
+                                                                            </path>
+                                                                            <path
+                                                                                d="M10 14m0 .5a.5 .5 0 0 1 .5 -.5h2a.5 .5 0 0 1 .5 .5v4a.5 .5 0 0 1 -.5 .5h-2a.5 .5 0 0 1 -.5 -.5z">
+                                                                            </path>
+                                                                            <path d="M6 10h.01m-.01 9h.01"></path>
+                                                                        </svg>
+                                                                    </a>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                {% if cm.email is none %}
+
+                                                                {% else %}
+                                                                <input type="text" class="form-control" readonly
+                                                                    value="{{ cm.email }}">
+                                                                {% endif %}
+                                                            </td>
+                                                            <td>
+                                                                {% if cm.mobile is none %}
+
+                                                                {% else %}
+                                                                <input type="text" class="form-control" readonly
+                                                                    value="{{cm.mobile}}">
+                                                                {% endif %}
+
+                                                            </td>
+
+                                                            <td>
+                                                                {% for cccf in cccf %}
+
+                                                                <div class="d-flex align-items-center row">
+                                                                    {% if cccf.civil_defence.id == cm.id %}
+                                                                    <span class="form-control avatar"
+                                                                        style="background-image: url(../media/{{cccf.civil_defence_document}})"></span>
+                                                                    {% endif %}
+                                                                </div>
+
+                                                                {% endfor %}
+
+                                                            </td>
+
+                                                        </tr>
+
+                                                        {% endfor %}
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer text-end">
+                                            <button type="submit" class="btn btn-primary">Make request</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+
+
+
+
+
+                            <div class="tab-pane" id="tabs-activity-8">
+
+
+
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="table-responsive">
+                                            <table class="table table-vcenter card-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Document Name</th>
+                                                        <th>Document Expiry</th>
+
+                                                        <th>Files</th>
+                                                        <th class="w-1"></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                    {% for mdd in mdd %}
+                                                    <tr>
+                                                        <td>
+                                                            <div class="font-weight-medium">{{mdd.document_name}}
+                                                                {% if mdd.document_type == 'industrial' %}
+                                                                [industrial]
+                                                                {% elif mdd.document_type == 'commercial'%}
+                                                                [commercial]
+                                                                {% endif %}
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="font-weight-medium">
+                                                                {% if mdd.document_expiry is none %}
+                                                                {% else %}
+                                                                {{mdd.document_expiry}}
+                                                                {% endif %}
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="d-flex py-1 align-items-center">
+
+                                                                {% for mdf in mdf %}
+                                                                {% if mdf.document_exp.id == mdd.id %}
+                                                                <span class="avatar me-2"
+                                                                    style="background-image: url(../media/{{mdf.main_file_document}})"></span>
+
+                                                                {% endif %}
+                                                                {% endfor %}
+                                                            </div>
+
+                                                        </td>
+
+                                                        <td>
+                                                            <a href="{% url 'update_property_doc' mdd.id %}">
+                                                                <button class="btn btn-azure">
+                                                                    Update
+                                                                </button>
+                                                            </a>
+                                                        </td>
+
+
+
+                                                    </tr>
+
+                                                    {% endfor %}
+
+
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+
+
+
+
+
+                            <div class="tab-pane" id="tabs-activity-9">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="table-responsive">
+                                            <table class="table table-vcenter card-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Name</th>
+                                                        <th>Phone</th>
+                                                        <th></th>
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {% for s in staff %}
+                                                    <tr>
+                                                        <td>
+                                                            <div class="d-flex py-1 align-items-center">
+                                                                <span class="avatar me-2"
+                                                                    style="background-image: url(../media/{{s.photo}})"></span>
+                                                                <div class="flex-fill">
+                                                                    <div class="font-weight-medium">{{s.fullname}}</div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="text-muted">
+                                                            {{s.mobile}}
+                                                        </td>
+
+                                                        <td>
+                                                            <a class="btn btn-outline-dark w-25 btn-icon " href="{% url 'update_staff_doc' s.id %}"
+                                                                        
+                                                                        aria-label="Twitter">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-table-down" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                                            <path d="M12.5 21h-7.5a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v7.5"></path>
+                                                                            <path d="M3 10h18"></path>
+                                                                            <path d="M10 3v18"></path>
+                                                                            <path d="M19 16v6"></path>
+                                                                            <path d="M22 19l-3 3l-3 -3"></path>
+                                                                         </svg>
+                                                                    </a>
+                                                        </td>
+                                                    </tr>
+
+                                                    {% endfor %}
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+<script src="../static/assets/js/obfuscated.js"></script>
+
+
+
+
+<script>
+    function ZubcwEsdkf(id) {
+        if (sessionStorage.getItem('Theme') === 'DARK') {
+            $.ajax({
+                url: "{% url 'ajax_password' %}",
+                type: 'POST',
+                data: {
+                    'value': id,
+                    'csrfmiddlewaretoken': '{{ csrf_token }}'
+                },
+                success: function (response) {
+                    var responseData = response.d;
+
+                    console.log(responseData)
+                    var h4Element = document.getElementById('showpassinputbox' + id);
+                    var inElement = document.getElementById('showpassinputboxs' + id);
+                    inElement.setAttribute('hidden', 'hidden')
+
+                    h4Element.removeAttribute('hidden', 'hidden');
+
+                    h4Element.innerText = responseData;
+                    // $("#eye1").attr("hidden", true);
+                    setTimeout(reloadPage, 10000);
+                }
+            });
+        } else {
+        }
+    }
+</script>
+<script>
+    function reloadPage() {
+        location.reload();
+    }
+</script>
+
+
+
+
+<script>
+    const changeAvatarButton = document.getElementById('changeAvatarButton');
+    const avatarInput = document.getElementById('avatarInput');
+    const avatarPreview = document.getElementById('avatarPreview');
+    const saveButton = document.getElementById('saveButton');
+
+    const dltbtn = document.getElementById('dltbtn');
+
+
+    changeAvatarButton.addEventListener('click', () => {
+        avatarInput.click();
+    });
+
+    avatarInput.addEventListener('change', () => {
+        const selectedFile = avatarInput.files[0];
+        if (selectedFile) {
+            const reader = new FileReader();
+            reader.onload = function (event) {
+                avatarPreview.style.backgroundImage = `url(${event.target.result})`;
+            };
+            reader.readAsDataURL(selectedFile);
+            saveButton.style.display = 'inline-block';
+            changeAvatarButton.style.display = 'none';
+            dltbtn.style.display = 'none';
+
+
+        } else {
+            avatarPreview.style.backgroundImage = `url(../media/{{company.photo}})`;
+            saveButton.style.display = 'none';
+        }
+    });
+
+    saveButton.addEventListener('click', () => {
+
+        saveButton.style.display = 'none';
+
+
+    });
+</script>
+
+
+
+
+<script>
+    const searchBox = document.getElementById('Searchbox');
+    const ownerRows = document.querySelectorAll('.owner-row');
+
+    searchBox.addEventListener('input', () => {
+        const searchTerm = searchBox.value.toLowerCase();
+
+        ownerRows.forEach(row => {
+            const ownerName = row.querySelector('[data-label="Name"] .font-weight-medium').textContent.toLowerCase();
+            const ownerType = row.querySelector('[data-label="Title"] .text-uppercase').textContent.toLowerCase();
+            const ownerPhone = row.querySelector('[data-label="Role"]').textContent.toLowerCase();
+
+            if (ownerName.includes(searchTerm) || ownerType.includes(searchTerm) || ownerPhone.includes(searchTerm)) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    });
+</script>
+
+
+
+<script>
+    function viewowner(id) {
+        $('#card-' + id).removeAttr('hidden')
+    };
+</script>
+<script>
+    function editowner(id) {
+        $('#cardedit-' + id).removeAttr('hidden')
+    };
+</script>
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        var rowCount = 1; // Counter for the number of rows
+
+        $(document).on('click', '.add-button', function () {
+            var documentRow = $(this).closest('.row');
+            var clonedRow = documentRow.clone();
+
+            // Update input field names and labels
+            clonedRow.find('input[type="text"]').attr('name', 'docname-' + (++rowCount));
+            clonedRow.find('input[type="file"]').attr('name', 'docfile-' + rowCount);
+            clonedRow.find('.ne').text('Document Name ' + rowCount);
+            clonedRow.find('.ne1').text('Document File ' + rowCount);
+
+            clonedRow.find('input[type="text"], input[type="file"]').val('');
+            documentRow.after(clonedRow);
+            documentRow.find('.add-button').hide();
+            documentRow.find('.main-labal').hide();
+
+            // Update the total row count
+            $('#total_rows').val(rowCount);
+        });
+    });
+</script>
+
+
+
+
+<script>
+    function Document_Card() {
+        console.log('hiihih');
+        var documentCard = document.getElementById('documentcard');
+        documentCard.removeAttribute('hidden');
+
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

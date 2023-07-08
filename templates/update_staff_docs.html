@@ -1,0 +1,235 @@
+{% extends 'navbar.html' %}
+{% block content %}
+{% load static %}
+
+
+<div class="page-wrapper">
+    <div class="page-body">
+        <div class="container-xl">
+            <div class="row row-cards">
+                <div class="col-12">
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title ">Staff Profile</h3>
+                            <div class="row row-cards">
+
+                                <form class="mt-3 row" action="{% url 'update_staff_doc_save' staff.id %}" method="post" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                <div class="col-sm-6 col-md-4">
+                                    <div class="mb-3">
+                                        <div class="row">
+                                            <div class="col-auto">
+                                                <span class="avatar avatar-md" id="imageUpload" style="background-image: url(../media/{{staff.photo}})"></span>
+                                            </div>
+                                            <input required type="file" id="fileInput" style="display: none;" name="profile" required>
+                                            
+                                            <div class="col">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Full Name</label>
+                                                    <input required class="form-control" value="{{staff.fullname}}" name="name" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6 col-md-3">
+                                    <div class="mb-3">
+                                        <label class="form-label">Mobile</label>
+                                        <input required type="text" class="form-control" value="{{staff.mobile}}" name="phone">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6 col-md-3">
+                                    <div class="mb-3">
+                                        <label class="form-label">-</label>
+                                        <button type="submit" class="btn btn-primary">Update Profile</button>
+                                    </div>
+                                </div>
+
+                                </form>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+               
+
+
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <h3 class="card-title">Staff Documents</h3>
+
+                            <div class="row row-cards">
+
+
+
+                                <div class="card-body">
+
+                                    <div class="table-responsive">
+                                        <table class="table mb-0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Doc Name</th>
+                                                    <th>Exp Date</th>
+                                                    <th>Files</th>
+                                                    <th></th>
+                                                    <th class="text-end">
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                                {% for sd in sdoc %}
+                                                <tr>
+                                                    <form action="{% url 'update_staff_file' sd.id %}" method="post" enctype="multipart/form-data">
+                                                        {% csrf_token %}
+                                                        <td>
+                                                            <input required type="text" class="form-control"
+                                                                value="{{sd.s_documetname}}" disabled name="d_name"
+                                                                id="textbox{{sd.id}}">
+                                                        </td>
+                                                        <td>
+                                                            <input required type="text" class="form-control"
+                                                                value="{{sd.s_documetexp}}" disabled name="d_date"
+                                                                id="datebox{{sd.id}}">
+                                                        </td>
+                                                        <td>
+                                                            <section id="mlfiles{{sd.id}}">
+
+
+                                                                {% for sf in sfile %}
+                                                                {% if sf.staff_doc.id == sd.id %}
+                                                                <span class="avatar me-2"
+                                                                    style="background-image: url(../media/{{sf.s_documetfile}})"></span>
+
+
+                                                                {% endif %}
+                                                                {% endfor %}
+                                                            </section>
+                                                            <input required class="form-control" type="file" name="files[]" 
+                                                                id="mlfile{{sd.id}}" multiple hidden>
+
+                                                            
+                                                        </td>
+
+                                                        <td>
+                                                            <button class="btn btn-outline-primary btn-md" id="uptbtn{{sd.id}}" type="submit"
+                                                                 hidden>Update</button>
+                                                        </td>
+
+                                                    </form>
+                                                    <td>
+                                                        <button class="btn btn-outline-primary btn-md" id="mainupt{{sd.id}}"
+                                                            onclick="updateInputs('{{sd.id}}')">Update</button>
+                                                    </td>
+
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                
+
+                            </div>
+
+
+
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    // Get the image and file input elements
+var imageUpload = document.getElementById('imageUpload');
+var fileInput = document.getElementById('fileInput');
+
+// Add a click event listener to the image
+imageUpload.addEventListener('click', function() {
+// Programmatically click the file input
+fileInput.click();
+});
+
+// Add a change event listener to the file input
+fileInput.addEventListener('change', function() {
+// Get the selected file
+var file = fileInput.files[0];
+
+if (file) {
+// Read the file as a data URL
+var reader = new FileReader();
+reader.onload = function(e) {
+// Update the background image of the span element
+imageUpload.style.backgroundImage = 'url(' + e.target.result + ')';
+};
+reader.readAsDataURL(file);
+}
+});
+</script>
+
+
+
+<script>
+    function updateInputs(id) {
+        // var textbox = document.getElementById('textbox' + id);
+        var datebox = document.getElementById('datebox' + id);
+
+        var filebox = document.getElementById('mlfile' + id);
+        var fileboxs = document.getElementById('mlfiles' + id);
+
+
+        
+
+        var uptbtn = document.getElementById('uptbtn'+ id)
+        var mainupt = document.getElementById('mainupt'+id)
+
+
+
+        // Enable input boxes
+        // textbox.disabled = false;
+        datebox.disabled = false;
+
+        filebox.hidden = false;
+        fileboxs.hidden = true;
+        uptbtn.hidden = false;
+        mainupt.hidden = true;
+
+
+        // Change datebox type to 'date'
+        datebox.type = 'date';
+    }
+</script>
+
+{% endblock %}

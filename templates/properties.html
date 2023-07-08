@@ -1,0 +1,404 @@
+{% extends 'navbar.html' %}
+{% block content %}
+{% load static %}
+
+
+<div class="page-wrapper">
+    <div class="container-xl">
+        <div class="page-body">
+            <div class="container-md">
+                <div class="row row-deck row-cards">
+
+
+
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Properties</h3>
+                            </div>
+                            <div class="card-body border-bottom py-3">
+                                <div class="d-flex">
+                                    <div class="text-muted">
+                                        Show
+                                        <div class="mx-2 d-inline-block">
+                                            <input type="number" class="form-control form-control-sm" value="10"
+                                                size="2" aria-label="Invoices count" id="entriesInput">
+                                        </div>
+                                        entries
+                                    </div>
+                                    <div class="ms-auto text-muted">
+                                        Search:
+                                        <div class="ms-2 d-inline-block">
+                                            <input type="text" class="form-control form-control-sm"
+                                                aria-label="Search invoice" id="searchInput">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table card-table table-vcenter text-nowrap datatable">
+                                    <thead>
+                                        <tr>
+                                            <th class="w-1">Pro.No</th>
+                                            <th></th>
+                                            <th>Name</th>
+                                            <th>Phone Number</th>
+                                            <th>loaction</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for c in company %}
+                                        <tr>
+
+                                            <td><span class="text-muted">{{c.property_code}}</span></td>
+                                            <td class="text-end">
+                                                <span class="avatar me-2">
+                                                    <img src="{{c.photo.url}}" alt="">
+                                                </span>
+                                            </td>
+                                            <td><a href="{% url 'property_view' c.id %}" class="text-reset"
+                                                    tabindex="-1">{{c.company_name}}</a>
+                                            </td>
+                                            <td>
+                                                {{c.phone}}
+                                            </td>
+                                            <td>
+                                                {{c.location}}
+                                            </td>
+
+                                            <td class="text-end">
+
+
+                                                <a data-bs-toggle="modal"
+                                                data-bs-target="#modal-simple-{{ c.id }}"
+                                                data-flight-id="{{ c.id }}">
+                                                    <button class="btn btn-outline-primary">This</button>
+                                                </a>
+
+
+
+                                                <!-- 
+                                                {% if c.status == '0' %}
+                                                <a href="{% url 'property_view' c.id %}">
+                                                    <button class="btn btn-outline-primary">Edit</button>
+                                                </a>
+                                                {% elif c.status == '1' %}
+                                                <a href="">
+                                                    <button class="btn btn-outline-secondry">View</button>
+                                                </a>
+                                                {% endif %} -->
+                                            </td>
+
+                                        </tr>
+
+
+
+                                        <div class="modal modal-blur fade" id="modal-simple-{{ c.id }}" tabindex="-1"
+                                        role="dialog" aria-hidden="true">
+                                            <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                    <div class="modal-status bg-success"></div>
+                                                    <div class="modal-body text-center py-4">
+
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="icon icon-tabler icon-tabler-folder-cog" width="24"
+                                                            height="24" viewBox="0 0 24 24" stroke-width="2"
+                                                            stroke="currentColor" fill="none" stroke-linecap="round"
+                                                            stroke-linejoin="round">
+                                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                            <path
+                                                                d="M12.5 19h-7.5a2 2 0 0 1 -2 -2v-11a2 2 0 0 1 2 -2h4l3 3h7a2 2 0 0 1 2 2v3">
+                                                            </path>
+                                                            <path d="M19.001 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0">
+                                                            </path>
+                                                            <path d="M19.001 15.5v1.5"></path>
+                                                            <path d="M19.001 21v1.5"></path>
+                                                            <path d="M22.032 17.25l-1.299 .75"></path>
+                                                            <path d="M17.27 20l-1.3 .75"></path>
+                                                            <path d="M15.97 17.25l1.3 .75"></path>
+                                                            <path d="M20.733 20l1.3 .75"></path>
+                                                        </svg>
+                                                        <h3>Property Manage</h3>
+
+                                                        <div class="col mb-2"><a href="{% url 'property' c.id %}"
+                                                                class="btn btn-outline-teal w-100">
+                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                    class="icon icon-tabler icon-tabler-brand-finder"
+                                                                    width="24" height="24" viewBox="0 0 24 24"
+                                                                    stroke-width="2" stroke="currentColor" fill="none"
+                                                                    stroke-linecap="round" stroke-linejoin="round">
+                                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none">
+                                                                    </path>
+                                                                    <path
+                                                                        d="M3 4m0 1a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1z">
+                                                                    </path>
+                                                                    <path d="M7 8v1"></path>
+                                                                    <path d="M17 8v1"></path>
+                                                                    <path
+                                                                        d="M12.5 4c-.654 1.486 -1.26 3.443 -1.5 9h2.5c-.19 2.867 .094 5.024 .5 7">
+                                                                    </path>
+                                                                    <path d="M7 15.5c3.667 2 6.333 2 10 0"></path>
+                                                                </svg>
+                                                                View Property
+                                                            </a></div>
+
+
+
+
+
+
+                                                        <div class="row mt-3">
+                                                            <div class="col-6 mb-2"><a
+                                                                    href="{% url 'property_view' c.id %}"
+                                                                    class="btn w-100">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                                                        class="icon icon-tabler icon-tabler-users"
+                                                                        width="24" height="24" viewBox="0 0 24 24"
+                                                                        stroke-width="2" stroke="currentColor"
+                                                                        fill="none" stroke-linecap="round"
+                                                                        stroke-linejoin="round">
+                                                                        <path stroke="none" d="M0 0h24v24H0z"
+                                                                            fill="none"></path>
+                                                                        <path
+                                                                            d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0">
+                                                                        </path>
+                                                                        <path
+                                                                            d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2">
+                                                                        </path>
+                                                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                                                        <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
+                                                                    </svg>
+                                                                    Owner Details
+                                                                </a></div>
+
+
+                                                            <div class="col-6 mb-2"><a
+                                                                    href="{% url 'property_user_credentials' c.id %}"
+                                                                    class="btn w-100">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                                                        class="icon icon-tabler icon-tabler-cloud-lock"
+                                                                        width="24" height="24" viewBox="0 0 24 24"
+                                                                        stroke-width="2" stroke="currentColor"
+                                                                        fill="none" stroke-linecap="round"
+                                                                        stroke-linejoin="round">
+                                                                        <path stroke="none" d="M0 0h24v24H0z"
+                                                                            fill="none"></path>
+                                                                        <path
+                                                                            d="M19 18a3.5 3.5 0 0 0 0 -7h-1c.397 -1.768 -.285 -3.593 -1.788 -4.787c-1.503 -1.193 -3.6 -1.575 -5.5 -1s-3.315 2.019 -3.712 3.787c-2.199 -.088 -4.155 1.326 -4.666 3.373c-.512 2.047 .564 4.154 2.566 5.027">
+                                                                        </path>
+                                                                        <path
+                                                                            d="M8 15m0 1a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1v3a1 1 0 0 1 -1 1h-6a1 1 0 0 1 -1 -1z">
+                                                                        </path>
+                                                                        <path d="M10 15v-2a2 2 0 1 1 4 0v2"></path>
+                                                                    </svg>
+                                                                    User Credentials
+                                                                </a></div>
+
+
+                                                                <div class="col-6 mb-2"><a
+                                                                    href="{% url 'property_document_exp' c.id %}"
+                                                                    class="btn w-100">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-zip" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                                        <path d="M6 20.735a2 2 0 0 1 -1 -1.735v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2h-1"></path>
+                                                                        <path d="M11 17a2 2 0 0 1 2 2v2a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1v-2a2 2 0 0 1 2 -2z"></path>
+                                                                        <path d="M11 5l-1 0"></path>
+                                                                        <path d="M13 7l-1 0"></path>
+                                                                        <path d="M11 9l-1 0"></path>
+                                                                        <path d="M13 11l-1 0"></path>
+                                                                        <path d="M11 13l-1 0"></path>
+                                                                        <path d="M13 15l-1 0"></path>
+                                                                     </svg>
+                                                                    Documents
+                                                                </a></div>
+
+
+                                                                <div class="col-6 mb-2"><a
+                                                                    href="{% url 'property_staff' c.id %}"
+                                                                    class="btn w-100">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users-group" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                                        <path d="M10 13a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
+                                                                        <path d="M8 21v-1a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v1"></path>
+                                                                        <path d="M15 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
+                                                                        <path d="M17 10h2a2 2 0 0 1 2 2v1"></path>
+                                                                        <path d="M5 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
+                                                                        <path d="M3 13v-1a2 2 0 0 1 2 -2h2"></path>
+                                                                     </svg>
+                                                                    Staff
+                                                                </a></div>
+
+
+
+
+
+                                                        </div>
+
+
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        {% endfor %}  
+
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="card-footer d-flex align-items-center">
+                                <p class="m-0 text-muted">Showing <span>1</span> to <span>8</span> of <span>16</span>
+                                    entries</p>
+                                <ul class="pagination m-0 ms-auto">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                                stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <polyline points="15 6 9 12 15 18" />
+                                            </svg>
+                                            prev
+                                        </a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#" id="nextButton">
+                                            next
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                                stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <polyline points="9 6 15 12 9 18" />
+                                            </svg>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    // Get references to the elements
+    const searchInput = document.getElementById('searchInput');
+    const entriesInput = document.getElementById('entriesInput');
+    const tableBody = document.querySelector('table tbody');
+    const paginationItems = document.querySelectorAll('.pagination .page-item');
+
+    // Hide or show table rows based on search input
+    searchInput.addEventListener('input', function () {
+        const searchText = this.value.toLowerCase();
+        const rows = tableBody.querySelectorAll('tr');
+
+        let count = 0;
+        rows.forEach(function (row) {
+            const cells = row.querySelectorAll('td');
+            let isMatch = false;
+
+            cells.forEach(function (cell) {
+                const cellText = cell.textContent.toLowerCase();
+                if (cellText.includes(searchText)) {
+                    isMatch = true;
+                    return;
+                }
+            });
+
+            if (isMatch) {
+                row.style.display = '';
+                count++;
+            } else {
+                row.style.display = 'none';
+            }
+        });
+
+        updateEntriesCount(count);
+    });
+
+    // Show a specific number of table entries
+    entriesInput.addEventListener('input', function () {
+        const count = parseInt(this.value);
+        const rows = tableBody.querySelectorAll('tr');
+
+        rows.forEach(function (row, index) {
+            if (index < count) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+
+        updateEntriesCount(count);
+    });
+
+    // Update the "Showing X to Y of Z entries" text
+    function updateEntriesCount(count) {
+        const visibleRows = tableBody.querySelectorAll('tr[style="display:"]');
+        const totalCount = visibleRows.length;
+        const entriesText = document.querySelector('.card-footer .text-muted');
+        entriesText.innerHTML = `Showing 1 to ${totalCount} of ${totalCount} entries`;
+    }
+
+    // Handle pagination button clicks
+    paginationItems.forEach(function (item) {
+        item.addEventListener('click', function (event) {
+            event.preventDefault();
+            const currentPage = document.querySelector('.pagination .page-item.active');
+            const nextPage = (this === currentPage.nextSibling) ? currentPage.nextSibling : currentPage.previousSibling;
+
+            if (nextPage) {
+                currentPage.classList.remove('active');
+                nextPage.classList.add('active');
+
+                const start = parseInt(nextPage.textContent) * parseInt(entriesInput.value) - parseInt(entriesInput.value);
+                const end = parseInt(nextPage.textContent) * parseInt(entriesInput.value);
+                const rows = tableBody.querySelectorAll('tr');
+
+                rows.forEach(function (row, index) {
+                    if (index >= start && index < end) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+
+                updateEntriesCount(end - start);
+            }
+        });
+    });
+
+    // Initial setup
+    updateEntriesCount(parseInt(entriesInput.value));
+
+
+</script>
+
+
+
+
+
+<script>
+    var navLink = document.querySelector('.nav-pro');
+    navLink.classList.add('active');
+</script>
+
+{% endblock %}
